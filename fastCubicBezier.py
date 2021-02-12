@@ -34,30 +34,30 @@ class fastCubicBezier:
 		point_x = dx
 		point_y = dy
 
-		# 1st derivation
-		d1x = ax*t**3 + bx*t**2 + cx*t + dx
-		d1y = ay*t**3 + by*t**2 + cy*t + dy
+		# express standard cubic bezier formular as at³ + bt² + ct + d form
+		x = ax*t**3 + bx*t**2 + cx*t + dx
+		y = ay*t**3 + by*t**2 + cy*t + dy
 
-		# 2nd derivation
-		d2x = 6 * ax * (t**3) + 2 * bx * (t**2)
-		d2y = 6 * ay * (t**3) + 2 * by * (t**2)
+		# 1nd derivation
+		d1x = 6 * ax * (t**3) + 2 * bx * (t**2)
+		d1y = 6 * ay * (t**3) + 2 * by * (t**2)
 
-		# 3rd derivation
-		d3x = 6 * ax * (t**3)
-		d3y = 6 * ay * (t**3)
+		# 2rd derivation
+		d2x = 6 * ax * (t**3)
+		d2y = 6 * ay * (t**3)
 			
 		points_X = [point_x]
 		points_Y = [point_y]
 
 		for i in range(resolution):
-			point_x += d1x
-			point_y += d1y
+			point_x += x
+			point_y += y
+			
+			x += d1x
+			y += d1y
 			
 			d1x += d2x
 			d1y += d2y
-			
-			d2x += d3x
-			d2y += d3y
 
 			points_X.append(point_x)
 			points_Y.append(point_y)
@@ -82,32 +82,41 @@ class fastCubicBezier:
 		point_x = 0
 		point_y = 0
 
-		# 1st derivation
-		d1x = ax*t**3 + bx*t**2 + cx*t
-		d1y = ay*t**3 + by*t**2 + cy*t
+		# express standard cubic bezier formular as at³ + bt² + ct + d form
+		x = ax*t**3 + bx*t**2 + cx*t
+		y = ay*t**3 + by*t**2 + cy*t
 
 		# 2nd derivation
-		d2x = 6 * ax * (t**3) + 2 * bx * (t**2)
-		d2y = 6 * ay * (t**3) + 2 * by * (t**2)
+		d1x = 6 * ax * (t**3) + 2 * bx * (t**2)
+		d1y = 6 * ay * (t**3) + 2 * by * (t**2)
 
 		# 3rd derivation
-		d3x = 6 * ax * (t**3)
-		d3y = 6 * ay * (t**3)
+		d2x = 6 * ax * (t**3)
+		d2y = 6 * ay * (t**3)
 			
 		points_X = [point_x]
 		points_Y = [point_y]
 
 		for i in range(resolution):
-			point_x += d1x
-			point_y += d1y
+			point_x += x
+			point_y += y
+			
+			x += d1x
+			y += d1y
 			
 			d1x += d2x
 			d1y += d2y
-			
-			d2x += d3x
-			d2y += d3y
 
 			points_X.append(point_x)
 			points_Y.append(point_y)
 			
 		return points_X, points_Y
+
+
+
+
+print (fastCubicBezier.animation(0.732,0,0.26,1, 10)[1])
+print (fastCubicBezier.universal(0,0, 1,1,0.732,0,0.26,1, 10)[1])
+
+
+
