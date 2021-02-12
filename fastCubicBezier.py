@@ -37,11 +37,11 @@ class fastCubicBezier:
 		x = ax*t**3 + bx*t**2 + cx*t + dx
 		y = ay*t**3 + by*t**2 + cy*t + dy
 
-		# 1st derivation
+		# 1st FD
 		d1x = 6 * ax * (t**3) + 2 * bx * (t**2)
 		d1y = 6 * ay * (t**3) + 2 * by * (t**2)
 
-		# 2nd derivation
+		# 2nd FD
 		d2x = 6 * ax * (t**3)
 		d2y = 6 * ay * (t**3)
 			
@@ -85,11 +85,11 @@ class fastCubicBezier:
 		x = ax*t**3 + bx*t**2 + cx*t
 		y = ay*t**3 + by*t**2 + cy*t
 
-		# 1st derivation
+		# 1st FD
 		d1x = 6 * ax * (t**3) + 2 * bx * (t**2)
 		d1y = 6 * ay * (t**3) + 2 * by * (t**2)
 
-		# 2nd deivation
+		# 2nd FD
 		d2x = 6 * ax * (t**3)
 		d2y = 6 * ay * (t**3)
 			
