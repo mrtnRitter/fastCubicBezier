@@ -111,12 +111,3 @@ class fastCubicBezier:
 			points_Y.append(point_y)
 			
 		return points_X, points_Y
-
-
-
-
-print (fastCubicBezier.animation(0.732,0,0.26,1, 10)[1])
-print (fastCubicBezier.universal(0,0, 1,1,0.732,0,0.26,1, 10)[1])
-
-
-
