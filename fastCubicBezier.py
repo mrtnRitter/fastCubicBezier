@@ -30,7 +30,6 @@ class fastCubicBezier:
 		dx = p1x
 		dy = p1y
 
-
 		point_x = dx
 		point_y = dy
 
