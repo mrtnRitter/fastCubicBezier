@@ -17,12 +17,13 @@ class fastCubicBezier:
 	def universal(p1x, p1y, p2x, p2y, h1x, h1y, h2x, h2y, resolution):
 
 		t = 1 / resolution
-
+		
+		# coefficients
 		ax = -p1x + 3*h1x - 3*h2x + p2x
 		ay = -p1y + 3*h1y - 3*h2y + p2y
 
-		bx = 3*p1x -6*h1x + 3*h2x
-		by = 3*p1y -6*h1y + 3*h2y
+		bx = 3*p1x - 6*h1x + 3*h2x
+		by = 3*p1y - 6*h1y + 3*h2y
 
 		cx = -3*p1x + 3*h1x
 		cy = -3*p1y + 3*h1y
@@ -33,18 +34,18 @@ class fastCubicBezier:
 		point_x = dx
 		point_y = dy
 
-		# express standard cubic bezier formular as at³ + bt² + ct + d
+		# 1st FD - express standard cubic bezier formular as at³ + bt² + ct + d
 		x = ax*t**3 + bx*t**2 + cx*t + dx
 		y = ay*t**3 + by*t**2 + cy*t + dy
 
-		# 1st FD
+		# 2nd FD
 		d1x = 6 * ax * (t**3) + 2 * bx * (t**2)
 		d1y = 6 * ay * (t**3) + 2 * by * (t**2)
 
-		# 2nd FD
+		# 3rd FD
 		d2x = 6 * ax * (t**3)
 		d2y = 6 * ay * (t**3)
-			
+
 		points_X = [point_x]
 		points_Y = [point_y]
 
@@ -60,7 +61,7 @@ class fastCubicBezier:
 
 			points_X.append(point_x)
 			points_Y.append(point_y)
-			
+						
 		return points_X, points_Y
 
 
@@ -81,15 +82,15 @@ class fastCubicBezier:
 		point_x = 0
 		point_y = 0
 
-		# express standard cubic bezier formular as at³ + bt² + ct + d
+		# 1st FD - express standard cubic bezier formular as at³ + bt² + ct + d
 		x = ax*t**3 + bx*t**2 + cx*t
 		y = ay*t**3 + by*t**2 + cy*t
 
-		# 1st FD
+		# 2nd FD
 		d1x = 6 * ax * (t**3) + 2 * bx * (t**2)
 		d1y = 6 * ay * (t**3) + 2 * by * (t**2)
 
-		# 2nd FD
+		# 3rd FD
 		d2x = 6 * ax * (t**3)
 		d2y = 6 * ay * (t**3)
 			
