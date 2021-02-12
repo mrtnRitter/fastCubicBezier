@@ -34,7 +34,7 @@ class fastCubicBezier:
 		point_x = dx
 		point_y = dy
 
-		# express standard cubic bezier formular as at³ + bt² + ct + d form
+		# express standard cubic bezier formular as at³ + bt² + ct + d
 		x = ax*t**3 + bx*t**2 + cx*t + dx
 		y = ay*t**3 + by*t**2 + cy*t + dy
 
@@ -82,7 +82,7 @@ class fastCubicBezier:
 		point_x = 0
 		point_y = 0
 
-		# express standard cubic bezier formular as at³ + bt² + ct + d form
+		# express standard cubic bezier formular as at³ + bt² + ct + d
 		x = ax*t**3 + bx*t**2 + cx*t
 		y = ay*t**3 + by*t**2 + cy*t
 
