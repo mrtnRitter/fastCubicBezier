@@ -35,29 +35,29 @@ class fastCubicBezier:
 		point_y = dy
 
 		# 1st FD - express standard cubic bezier formular as at³ + bt² + ct + d
-		x = ax*t**3 + bx*t**2 + cx*t + dx
-		y = ay*t**3 + by*t**2 + cy*t + dy
+		d1x = ax*t**3 + bx*t**2 + cx*t + dx
+		d1y = ay*t**3 + by*t**2 + cy*t + dy
 
 		# 2nd FD
-		d1x = 6 * ax * (t**3) + 2 * bx * (t**2)
-		d1y = 6 * ay * (t**3) + 2 * by * (t**2)
+		d2x = 6 * ax * (t**3) + 2 * bx * (t**2)
+		d2y = 6 * ay * (t**3) + 2 * by * (t**2)
 
 		# 3rd FD
-		d2x = 6 * ax * (t**3)
-		d2y = 6 * ay * (t**3)
+		d3x = 6 * ax * (t**3)
+		d3y = 6 * ay * (t**3)
 
 		points_X = [point_x]
 		points_Y = [point_y]
 
 		for i in range(resolution):
-			point_x += x
-			point_y += y
-			
-			x += d1x
-			y += d1y
+			point_x += d1x
+			point_y += d1y
 			
 			d1x += d2x
 			d1y += d2y
+			
+			d2x += d3x
+			d2y += d3y
 
 			points_X.append(point_x)
 			points_Y.append(point_y)
@@ -83,29 +83,29 @@ class fastCubicBezier:
 		point_y = 0
 
 		# 1st FD - express standard cubic bezier formular as at³ + bt² + ct + d
-		x = ax*t**3 + bx*t**2 + cx*t
-		y = ay*t**3 + by*t**2 + cy*t
+		d1x = ax*t**3 + bx*t**2 + cx*t
+		d1y = ay*t**3 + by*t**2 + cy*t
 
 		# 2nd FD
-		d1x = 6 * ax * (t**3) + 2 * bx * (t**2)
-		d1y = 6 * ay * (t**3) + 2 * by * (t**2)
+		d2x = 6 * ax * (t**3) + 2 * bx * (t**2)
+		d2y = 6 * ay * (t**3) + 2 * by * (t**2)
 
 		# 3rd FD
-		d2x = 6 * ax * (t**3)
-		d2y = 6 * ay * (t**3)
+		d3x = 6 * ax * (t**3)
+		d3y = 6 * ay * (t**3)
 			
 		points_X = [point_x]
 		points_Y = [point_y]
 
 		for i in range(resolution):
-			point_x += x
-			point_y += y
-			
-			x += d1x
-			y += d1y
+			point_x += d1x
+			point_y += d1y
 			
 			d1x += d2x
 			d1y += d2y
+			
+			d2x += d3x
+			d2y += d3y
 
 			points_X.append(point_x)
 			points_Y.append(point_y)
