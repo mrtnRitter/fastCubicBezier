@@ -113,5 +113,5 @@ class fastCubicBezier:
 		return points_X, points_Y
 
 
-fastCubicBezier.universal(0,0,1,1,0.732,0,0.26,1,10)
+
 
