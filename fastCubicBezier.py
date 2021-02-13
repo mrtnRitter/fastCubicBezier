@@ -65,7 +65,7 @@ class fastCubicBezier:
 		return points_X, points_Y
 
 
-	def animation(h1x, h1y, h2x, h2y, resolution):
+	def transition(h1x, h1y, h2x, h2y, resolution):
 		# p1 and p2 are 0 and 1, so we can stripe the code
 
 		t = 1 / resolution
