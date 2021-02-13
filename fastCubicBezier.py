@@ -37,6 +37,14 @@ class fastCubicBezier:
 		# 1st FD - express standard cubic bezier formular as at³ + bt² + ct + d
 		d1x = ax*t**3 + bx*t**2 + cx*t + dx
 		d1y = ay*t**3 + by*t**2 + cy*t + dy
+		
+		_cx = 3.0 * h1x
+		_bx = 3.0 * (h2x - h1x) - cx
+		_ax = 1.0 - cx -bx
+		
+		_d1x = _ax*t**3 + _bx*t**2 + _cx*t
+		
+		print (d1x, _d1x)
 
 		# 2nd FD
 		d2x = 6 * ax * (t**3) + 2 * bx * (t**2)
@@ -70,15 +78,15 @@ class fastCubicBezier:
 
 		t = 1 / resolution
 
-		ax = 3*h1x - 3*h2x + 1
-		ay = 3*h1y - 3*h2y + 1
-
-		bx = -6*h1x + 3*h2x
-		by = -6*h1y + 3*h2y
-
 		cx = 3*h1x
 		cy = 3*h1y
 
+		bx = 3 * (h2x - h1x) - cx
+		by = 3 * (h2y - h1y) - cy
+
+		ax = 1 - cx -bx
+		ay = 1 - cy -by
+		
 		point_x = 0
 		point_y = 0
 
@@ -111,3 +119,7 @@ class fastCubicBezier:
 			points_Y.append(point_y)
 			
 		return points_X, points_Y
+
+
+fastCubicBezier.universal(0,0,1,1,0.732,0,0.26,1,10)
+
