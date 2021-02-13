@@ -37,14 +37,6 @@ class fastCubicBezier:
 		# 1st FD - express standard cubic bezier formular as at³ + bt² + ct + d
 		d1x = ax*t**3 + bx*t**2 + cx*t + dx
 		d1y = ay*t**3 + by*t**2 + cy*t + dy
-		
-		_cx = 3.0 * h1x
-		_bx = 3.0 * (h2x - h1x) - cx
-		_ax = 1.0 - cx -bx
-		
-		_d1x = _ax*t**3 + _bx*t**2 + _cx*t
-		
-		print (d1x, _d1x)
 
 		# 2nd FD
 		d2x = 6 * ax * (t**3) + 2 * bx * (t**2)
