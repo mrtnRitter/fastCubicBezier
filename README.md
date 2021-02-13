@@ -12,6 +12,6 @@ for any kind of Bezier.
 
 Use
 
-*x,y = fastCubicBezier.animation(Handle1_X, Handle1_Y, Handle2_X, Handle2_Y, Resolution)*
+*x,y = fastCubicBezier.transition(Handle1_X, Handle1_Y, Handle2_X, Handle2_Y, Resolution)*
 
 if Startpoint is 0 and Endpoint is 1, usually when Bezier is used for animated transistions.
