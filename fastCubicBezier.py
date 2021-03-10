@@ -35,8 +35,8 @@ class fastCubicBezier:
 		point_y = dy
 
 		# 1st FD - express standard cubic bezier formular as at³ + bt² + ct + d
-		d1x = ax*t**3 + bx*t**2 + cx*t + dx
-		d1y = ay*t**3 + by*t**2 + cy*t + dy
+		d1x = ax*t**3 + bx*t**2 + cx*t
+		d1y = ay*t**3 + by*t**2 + cy*t
 
 		# 2nd FD
 		d2x = 6 * ax * (t**3) + 2 * bx * (t**2)
